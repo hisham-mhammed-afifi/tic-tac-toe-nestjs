@@ -28,4 +28,18 @@ export class AppController {
     const response = await this.appService.getSwaggerJs();
     return response.data;
   }
+
+  @Get('/api/favicon-32x32.png')
+  @ApiOperation({ summary: 'Swagger JS.' })
+  async getSwaggerImages(): Promise<any> {
+    const response = await this.appService.getSwaggerImages();
+    return response.data;
+  }
+
+  @Get('/api/favicon-16x16.png')
+  @ApiOperation({ summary: 'Swagger JS.' })
+  async getSwaggerImagef(): Promise<any> {
+    const response = await this.appService.getSwaggerImagef();
+    return response.data;
+  }
 }

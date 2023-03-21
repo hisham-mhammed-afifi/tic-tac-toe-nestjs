@@ -22,4 +22,20 @@ export class AppService {
       )
       .toPromise();
   }
+
+  async getSwaggerImagef() {
+    return await this.httpService
+      .get(
+        'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.20.3/favicon-16x16.png',
+      )
+      .toPromise();
+  }
+
+  async getSwaggerImages() {
+    return await this.httpService
+      .get(
+        'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.20.3/favicon-32x32.png',
+      )
+      .toPromise();
+  }
 }
