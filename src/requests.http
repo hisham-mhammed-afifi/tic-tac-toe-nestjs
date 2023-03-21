@@ -1,0 +1,33 @@
+POST http://localhost:3000/player/signup
+Content-Type: application/json
+
+{
+  "name": "Asmaa",
+  "email": "asmaa@gmail.com",
+  "password": "12345"
+}
+###
+POST http://localhost:3000/player/login
+Content-Type: application/json
+
+{
+  "email": "asmaa@gmail.com",
+  "password": "12345"
+}
+###
+GET http://localhost:3000/player/me
+###
+POST http://localhost:3000/match/create
+Content-Type: application/json
+
+{
+  "firstPlayerId": "64188351395203316582238c"
+}
+###
+POST http://localhost:3000/match/join
+Content-Type: application/json
+
+{
+  "id": "6418d7e8efe100a06a37b6b8",
+  "secondPlayerId": "6418dd2917e2e76f91884296"
+}
