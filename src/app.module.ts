@@ -1,4 +1,5 @@
 import { Module, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PlayerModule } from './player/player.module';
@@ -15,6 +16,7 @@ const cookieSession = require('cookie-session');
     MatchModule,
     GameBoardModule,
     DatabaseModule,
+    HttpModule
   ],
   controllers: [AppController],
   providers: [

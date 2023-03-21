@@ -12,4 +12,18 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('/api/swagger-ui.css')
+  @ApiOperation({ summary: 'Swagger CSS.' })
+  async getSwaggerCss(): Promise<any> {
+    const response = await this.appService.getSwaggerCss();
+    return response.data;
+  }
+
+  @Get('/api/swagger-ui-standalone-preset.js')
+  @ApiOperation({ summary: 'Swagger JS.' })
+  async getSwaggerJs(): Promise<any> {
+    const response = await this.appService.getSwaggerJs();
+    return response.data;
+  }
 }
