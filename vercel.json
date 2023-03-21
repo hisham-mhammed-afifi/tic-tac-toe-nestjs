@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "env": {
-    "MONGO_URI": "@tic_tac_toe_db"
-  },
   "builds": [
     {
       "src": "src/main.ts",
