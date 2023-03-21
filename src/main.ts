@@ -18,7 +18,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: { origin: whiteList(process.env.ORIGIN), credentials: true },
   });
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  // app.useStaticAssets(join(__dirname, '..', 'public'));
   const config = new DocumentBuilder()
     .setTitle('Tic Tac Toe')
     .setDescription('Play a new Game')
