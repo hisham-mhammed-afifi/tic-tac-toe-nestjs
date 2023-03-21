@@ -3,7 +3,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { PlayerController } from './player.controller';
 import { PlayerService } from './player.service';
 import { PlayerInterceptor } from './interceptors/player.interceptor';
-import { playerProviders } from '../database/player.providers';
+import { playerProviders } from '../providers/player.providers';
 import { DatabaseModule } from '../database/database.module';
 
 @Module({

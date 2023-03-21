@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
-import { matchProviders } from '../database/match.providers';
+import { matchProviders } from '../providers/match.providers';
 import { MatchController } from './match.controller';
 import { MatchService } from './match.service';
 
