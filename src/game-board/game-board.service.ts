@@ -1,13 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { GameBoard, GameBoardDocument } from './game-board.schema';
+import { GameBoard } from '../models/GameBoard';
 
 @Injectable()
 export class GameBoardService {
   constructor(
-    @InjectModel(GameBoard.name)
-    private gameBoardModel: Model<GameBoardDocument>,
+    @Inject('GAMEBOARD_MODEL')
+    private gameBoardModel: Model<GameBoard>,
   ) {}
 
   async findAll(): Promise<GameBoard[]> {

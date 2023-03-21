@@ -1,22 +1,20 @@
 import {
   BadRequestException,
+  Inject,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatePlayerDto } from './Dtos/create-player.dto';
-import { Player, PlayerDocument } from './player.schema';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
+import { Player } from '../models/Player';
 
 const scrypt = promisify(_scrypt);
 
 @Injectable()
 export class PlayerService {
-  constructor(
-    @InjectModel(Player.name) private playerModel: Model<PlayerDocument>,
-  ) {}
+  constructor(@Inject('PLAYER_MODEL') private playerModel: Model<Player>) {}
 
   findAll(): Promise<Player[]> {
     return this.playerModel.find().exec();

@@ -1,13 +1,12 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { Injectable, NotFoundException, BadRequestException, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
+import { Match } from '../models/Match';
 import { CreateMatchDto } from './Dtos/create-match.dto';
-import { Match, MatchDocument } from './match.schema';
 
 @Injectable()
 export class MatchService {
   constructor(
-    @InjectModel(Match.name) private matchModel: Model<MatchDocument>,
+    @Inject('MATCH_MODEL') private matchModel: Model<Match>,
   ) {}
 
   async findAll(): Promise<Match[]> {

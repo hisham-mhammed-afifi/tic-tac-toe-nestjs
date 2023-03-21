@@ -1,11 +1,11 @@
 import { Module, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PlayerModule } from './player/player.module';
 import { MatchModule } from './match/match.module';
 import { GameBoardModule } from './game-board/game-board.module';
 import { APP_PIPE } from '@nestjs/core';
+import { DatabaseModule } from './database/database.module';
 
 const cookieSession = require('cookie-session');
 
@@ -14,7 +14,7 @@ const cookieSession = require('cookie-session');
     PlayerModule,
     MatchModule,
     GameBoardModule,
-    MongooseModule.forRoot(process.env.DB_URL),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [

@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { GameBoardController } from './game-board.controller';
 import { GameBoardService } from './game-board.service';
-import { GameBoard, GameBoardSchema } from './game-board.schema';
+import { DatabaseModule } from '../database/database.module';
+import { gameboardProviders } from '../database/game-board.providers';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: GameBoard.name, schema: GameBoardSchema }])],
+  imports: [DatabaseModule],
   controllers: [GameBoardController],
-  providers: [GameBoardService]
+  providers: [GameBoardService, ...gameboardProviders],
 })
 export class GameBoardModule {}
